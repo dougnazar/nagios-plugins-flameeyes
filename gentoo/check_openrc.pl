@@ -86,7 +86,7 @@ foreach my $line (split('\n', $output)) {
 	} elsif ( $status eq 'started' ) {
 	    push(@started, $service);
 	} else {
-	    $np->nagios_die("Service $service has unknwon status $status");
+	    $np->nagios_die("Service $service has unknown status $status");
 	}
     }
 }
@@ -102,7 +102,7 @@ if ( scalar(@stopped) > 0 ) {
 
 if ( scalar(@crashed) > 0 ) {
     $code = CRITICAL;
-    $message .= "CRASHED " . join(', ', @stopped);
+    $message .= "CRASHED " . join(', ', @crashed);
 }
 
 $np->nagios_exit($code, $message . "\n" . $extmessage);
